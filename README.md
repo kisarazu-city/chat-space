@@ -8,15 +8,17 @@
 
 ### Association
 - has_many :groups_users
+- has_many :groups
 - has_many :comments
 
 ## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
+|name|string|null: false|
 
 ### Association
+- has_many :users
 - has_many :groups_users
 - has_many :comments
 
@@ -35,10 +37,10 @@
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
+|text|text|
 |picture|string|
-|user_id|integer|foreign_key: true|
-|group_id|integer|foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :group
 - belongs_to :user
