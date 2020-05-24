@@ -8,7 +8,7 @@
 
 ### Association
 - has_many :groups_users
-- has_many :groups
+- has_many :groups, through: :groups_users
 - has_many :comments
 
 ## groupsテーブル
@@ -18,8 +18,8 @@
 |name|string|null: false, unique: true|
 
 ### Association
-- has_many :users
 - has_many :groups_users
+- has_many :users, through: :groups_users
 - has_many :comments
 
 
@@ -27,8 +27,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
@@ -39,8 +39,8 @@
 |------|----|-------|
 |text|text|
 |picture|string|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :group
 - belongs_to :user
