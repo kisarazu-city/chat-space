@@ -87,18 +87,18 @@ a {
 
 /* サイドグループ*/
 
-.group-box {
+.side-bar__groups-list {
   padding: 20px 5px 40px 5px;
   color: $fwhite;
   font-weight: bold;
 }
 
-.group-name {
+.group__name {
   margin-bottom: 5px;
   font-size: 15px;
 }
 
-.group-status {
+.group__message {
   font-size: 11px;
 }
 

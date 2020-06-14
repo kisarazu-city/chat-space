@@ -14,16 +14,17 @@
             %h3.user-name
               = current_user.name
             %ul.menu
-              %li.edit-user
-                = link_to do
-                  = icon('fas', 'edit', class: 'icon')
               %li.new-group
+                = link_to new_group_path do
+                  = icon('fas', 'edit', class: 'icon')
+              %li.edit-user
                 = link_to edit_user_path(current_user) do
                   = icon('fas', 'cog', class: 'icon')
-        .groups
-          .group-box
-            .group-name tech camp
-            .group-status まだメッセージはありません
-          .group-box
-            .group-name tech camp
-            .group-status まだメッセージはありません
+        .side-bar__groups-list
+          - current_user.groups.each do |group|
+            .group
+              = link_to '#' do
+                .group__name
+                  = group.name
+                .group__message
+                  メッセージはありません
